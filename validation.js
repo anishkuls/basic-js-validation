@@ -1,12 +1,19 @@
+//Name
 const firstName = document.querySelector("#fname");
 const lastName = document.querySelector("#lname");
-const email = document.querySelector("#usr_email");
 const nameErrorMsg = document.querySelector("#name_error");
+
+//Email
+const email = document.querySelector("#usr_email");
 const emailErrorMsg = document.querySelector("#email_error");
+
+//Phone
 const phone = document.querySelector("#usr_phone");
 const phoneErrorMsg = document.querySelector("#phone_error");
+
 const gender = document.querySelector('input[name="gender"]:checked');
 const genderErrorMsg = document.querySelector("#gender_error");
+
 const dob = document.querySelector("#dob");
 const dobErrorMsg = document.querySelector("#dob_error");
 
