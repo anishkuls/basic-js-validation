@@ -17,12 +17,32 @@ const genderErrorMsg = document.querySelector("#gender_error");
 const dob = document.querySelector("#dob");
 const dobErrorMsg = document.querySelector("#dob_error");
 
+let correctImg = document.createElement("img");
+correctImg.src = "checkmark_32.png";
+correctImg.alt = "check_image";
+
 firstName.addEventListener("keyup", () => {
-  nameErrorMsg.textContent = nameVerification(firstName.value);
+  if (firstName.value != "") {
+    if (nameVerification(firstName.value)) nameErrorMsg.textContent = "error";
+    else {
+      nameErrorMsg.textContent = "";
+      nameErrorMsg.appendChild(correctImg);
+    }
+  } else {
+    nameErrorMsg.textContent = "";
+  }
 });
-lastName.addEventListener("keyup", () => {
-  nameErrorMsg.textContent = nameVerification(lastName.value);
+firstName.addEventListener("blur", (event) => {});
+
+lastName.addEventListener("keyup", (event) => {
+  if (nameVerification(`${lastName.value}${firstName.value}`))
+    nameErrorMsg.textContent = "error";
+  else {
+    nameErrorMsg.textContent = "";
+    nameErrorMsg.appendChild(correctImg);
+  }
 });
+
 email.addEventListener("keyup", () => {
   emailErrorMsg.textContent = emailVerification(email.value);
 });
@@ -39,24 +59,22 @@ dob.addEventListener("change", () => {
 function nameVerification(value) {
   for (let index = 0; index < value.length; index++) {
     if (!isNaN(value[index])) {
-      return "Error";
+      return true;
     }
   }
 }
 
 function emailVerification(email) {
-  if(email.trim()===""){
+  if (email.trim() === "") {
     return "";
-  }
- else if (!/\S+@\S+\.\S+/.test(email)) {
+  } else if (!/\S+@\S+\.\S+/.test(email)) {
     return "Error";
   }
 }
 function phoneVerification(phone) {
-  if(phone.trim()===""){
+  if (phone.trim() === "") {
     return "";
-  }
- else if (!/^[0-9]{10}$/.test(phone)) {
+  } else if (!/^[0-9]{10}$/.test(phone)) {
     return "Error";
   }
 }
