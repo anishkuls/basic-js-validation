@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Single Input Field</title>
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .full {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 80vh;
+      }
+      input {
+        width: 350px;
+        height: 40px;
+        border: 2px solid rgb(189, 189, 189);
+        border-radius: 12px;
+        padding: 0px 10px;
+        font-size: 20px;
+      }
+      p {
+        padding: 10px 10px;
+        color: red;
+        font-size: 16px;
+      }
+
+      body {
+        font-family: "Plus Jakarta Sans", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="full">
+      <div class="input-comp">
+        <form action="">
+          <input type="text" id="inp" />
+          <p id="error-msg"></p>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const inputfield = document.querySelector("#inp");
+      const errorMsg = document.querySelector("#error-msg");
+
+      inputfield.addEventListener("keyup", function (event) {
+        if (!isNaN(event.currentTarget.value)) {
+          errorMsg.textContent = "Sorry! Numbers not allowed";
+        } else {
+          errorMsg.textContent = "";
+        }
+      });
+    </script>
+  </body>
+</html>
