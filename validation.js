@@ -45,22 +45,28 @@ function nameVerification(value) {
 }
 
 function emailVerification(email) {
-  if (!/\S+@\S+\.\S+/.test(email)) {
+  if(email.trim()===""){
+    return "";
+  }
+ else if (!/\S+@\S+\.\S+/.test(email)) {
     return "Error";
   }
 }
 function phoneVerification(phone) {
-  if (!/^[0-9]{10}$/.test(phone)) {
+  if(phone.trim()===""){
+    return "";
+  }
+ else if (!/^[0-9]{10}$/.test(phone)) {
     return "Error";
   }
 }
 
-function dobVerification(dob) {
-  if (!dob) {
-    return "Please enter your date of birth";
-  }
-  return "";
-}
+// function dobVerification(dob) {
+//   if (!dob) {
+//     return "Please enter your date of birth";
+//   }
+//   return "";
+// }
 
 // function genderVerification(gender){
 //   if(!gender){

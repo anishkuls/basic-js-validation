@@ -41,6 +41,7 @@
                     id="fname"
                     type="text"
                     placeholder="Enter First Name"
+                    required
                   />
                 </td>
                 <td><label for="lname">Last name</label></td>
@@ -50,15 +51,16 @@
                     type="text"
                     placeholder="Enter Last Name"
                     name="lname"
+                    required
                   />
                 </td>
                 <td class="error" id="name_error"></td>
               </tr>
               <tr>
                 <td><label for="usr_email">Email</label></td>
-                <td><input id="usr_email" type="email" /></td>
+                <td><input id="usr_email" type="email" required /></td>
                 <td><label for="usr_phone">Phone</label></td>
-                <td><input id="usr_phone" type="text" /></td>
+                <td><input id="usr_phone" type="text" required /></td>
                 <td class="error" id="email_error"></td>
                 <td class="error" id="phone_error"></td>
               </tr>
@@ -91,7 +93,7 @@
               <tr>
                 <td><label for="dob">D.O.B</label></td>
                 <td>
-                  <input type="date" name="date" id="dob" />
+                  <input type="date" name="date" id="dob" required />
                 </td>
                 <td class="error" id="dob_error"></td>
               </tr>
