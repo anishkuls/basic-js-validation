@@ -52,16 +52,26 @@
     </div>
 
     <script>
-      const inputfield = document.querySelector("#inp");
-      const errorMsg = document.querySelector("#error-msg");
+      
+  const inputField = document.querySelector("#inp");
+  const errorMsg = document.querySelector("#error-msg");
 
-      inputfield.addEventListener("keyup", function (event) {
-        if (!isNaN(event.currentTarget.value)) {
-          errorMsg.textContent = "Sorry! Numbers not allowed";
-        } else {
-          errorMsg.textContent = "";
-        }
-      });
-    </script>
+  inputField.addEventListener("input", function () {
+    const inputValue = inputField.value;
+    var disallowedChars = ['0','1','2','3','4','5','6','7','8','9','!','@','#','$','%','^','&','*','(',')','_','+','=','[',']','{','}','|',';',':','"',"'",'<',',','>','.','?','/','\\'];
+
+    for (let i = 0; i < inputValue.length; i++) {
+      if (disallowedChars.includes(inputValue[i])) {
+        errorMsg.textContent = "Numbers and symbols are not allowed";
+        return false;
+      }
+    }
+
+    errorMsg.textContent = ""; 
+  });
+
+
+
+</script>
   </body>
 </html>
