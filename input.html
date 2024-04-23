@@ -55,7 +55,7 @@
       <div class="input-comp">
         <form action="">
           <input type="text" id="numericInput" placeholder="Type character only...">
-          <p id="error-msg"></p>
+          <p id="error-msg-t"></p>
         </form>
       </div>
     </div>
@@ -81,6 +81,7 @@
 
 
   const numericInput = document.getElementById("numericInput");
+  const errorMsgT = document.querySelector("#error-msg-t");
 
 numericInput.addEventListener("keydown", function(event) {
   // Allow only numeric key presses (key codes 48 to 57 are for digits 0 to 9)
@@ -88,8 +89,14 @@ numericInput.addEventListener("keydown", function(event) {
         (event.keyCode === 32) || // Allow space key
         (event.keyCode === 8) || // Allow backspace key
         (event.keyCode === 37) || // Allow left arrow key
-        (event.keyCode === 39))) { // Allow right arrow key
+        (event.keyCode === 39) || // Allow right arrow key
+        (event.keyCode === 16) || // Allow Shift keys
+        (event.keyCode === 20))) {// Allow right arrow key
     event.preventDefault();
+    errorMsgT.textContent = "Only characters are allowed";
+    setTimeout(()=>{
+      errorMsgT.textContent=""
+    },1000);
   }
 });
 </script>
