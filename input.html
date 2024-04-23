@@ -17,6 +17,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         min-height: 80vh;
       }
       input {
@@ -31,6 +32,7 @@
         padding: 10px 10px;
         color: red;
         font-size: 16px;
+        min-height: 25px;
       }
 
       body {
@@ -46,6 +48,13 @@
       <div class="input-comp">
         <form action="">
           <input type="text" id="inp" />
+          <p id="error-msg"></p>
+        </form>
+      </div>
+      
+      <div class="input-comp">
+        <form action="">
+          <input type="text" id="numericInput" placeholder="Type character only...">
           <p id="error-msg"></p>
         </form>
       </div>
@@ -71,7 +80,18 @@
   });
 
 
+  const numericInput = document.getElementById("numericInput");
 
+numericInput.addEventListener("keydown", function(event) {
+  // Allow only numeric key presses (key codes 48 to 57 are for digits 0 to 9)
+  if (!((event.keyCode >= 65 && event.keyCode <= 90) ||
+        (event.keyCode === 32) || // Allow space key
+        (event.keyCode === 8) || // Allow backspace key
+        (event.keyCode === 37) || // Allow left arrow key
+        (event.keyCode === 39))) { // Allow right arrow key
+    event.preventDefault();
+  }
+});
 </script>
   </body>
 </html>
